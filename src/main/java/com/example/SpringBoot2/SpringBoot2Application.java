@@ -1,17 +1,16 @@
 package com.example.SpringBoot2;
-
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
 public class SpringBoot2Application {
-	public static void main(String[] args) {
-		ApplicationContext context = SpringApplication.run(SpringBoot2Application.class, args);
+	private static final Logger logger = LoggerFactory.getLogger(SpringBoot2Application.class);
 
-		// Get DemoBean and use it
-		DemoBean demoBean = context.getBean(DemoBean.class);
-		System.out.println(demoBean.getMessage());  // Output: Hello from DemoBean!
+	public static void main(String[] args) {
+		logger.info("Starting Spring Boot Application...");
+		SpringApplication.run(SpringBoot2Application.class, args);
+		logger.info("Application Started Successfully.");
 	}
 }
